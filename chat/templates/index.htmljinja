@@ -56,12 +56,13 @@
                                       {{ left_sidebar_closed|tojson }},
                                       {{ right_sidebar_closed|tojson }})
 
-      UserGuide.init()
+      UserGuide.init(chatControls)
       sound = new Sound("/static/audio/ping.mp3")
 
       dateTimeHelper = new DateTimeHelper()
 
       messagesViewCollection = new MessagesViewCollection({ messageHub: messageHub,
+                                                            chatControls: chatControls,
                                                             sound: sound,
                                                             channels: initialChannels,
                                                             channelViewCollection: channelViewCollection,

@@ -1,5 +1,5 @@
 window.UserGuide =
-  init: ->
+  init: (@chatControls) ->
     shortcuts = @constructShortcuts()
     $template = $(Mustache.render($("#info-template").html(), bindings: shortcuts))
     renderTasks = []
@@ -34,7 +34,7 @@ window.UserGuide =
 
   constructShortcuts: ->
     shortcuts = []
-    for b in ChatControls.globalBindings
+    for b in @chatControls.globalBindings
       if b.showHelp
         keys = []
         for key in b.keys
